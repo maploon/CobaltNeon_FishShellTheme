@@ -21,10 +21,10 @@ function fish_prompt --description 'Write out the prompt'
     function _status_indicator
         if test $last_status -eq 0
             set_color green
-            echo " ->"
+            echo "->"
         else
             set_color red
-            echo " -x"
+            echo "-x"
         end
     end
 
@@ -87,6 +87,6 @@ function fish_prompt --description 'Write out the prompt'
       end
   end
 
-  echo -s "$__fish_prompt_user" "[$USER" @ "$__fish_prompt_host" "$__fish_prompt_hostname]" "$__fish_prompt_normal" ' ' "$__fish_prompt_cwd" (set_color green) (prompt_pwd) (_git_info)
+  echo -s (set_color yellow) "(" (date "+$c2%H$c0:$c2%M$c0:$c2%S") ") "\u2022 " " (set_color normal) "$__fish_prompt_user" "[$USER" @ "$__fish_prompt_host" "$__fish_prompt_hostname]" "$__fish_prompt_normal" ' ' "$__fish_prompt_cwd" (set_color green) (prompt_pwd) (_git_info)
   echo -s (_status_indicator) ' '
 end
